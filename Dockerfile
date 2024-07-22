@@ -1,5 +1,4 @@
-# Use the official Node.js image as the base image
-FROM node:14
+FROM node:18
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -13,8 +12,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose the port the app runs on
-EXPOSE 5000
+# Start the backend application
+CMD ["npm", "start"]
 
-# Start the application
-CMD ["node", "app.js"]
+# Expose port 5000 (or any port your backend uses)
+EXPOSE 5000
